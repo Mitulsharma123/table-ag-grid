@@ -1,16 +1,17 @@
-import React, { useEffect, useState } from 'react';
-import { render } from 'react-dom';
-import { AgGridReact } from 'ag-grid-react';
-import './App.css'; 
-
-import 'ag-grid-community/styles/ag-grid.css';
-import 'ag-grid-community/styles/ag-theme-alpine.css';
+import { useEffect, useState } from 'react';
+import { AgGridColumn, AgGridReact } from 'ag-grid-react';
+ 
+import 'ag-grid-community/dist/styles/ag-grid.css';
+import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
+ 
+import './App.css';
+import data from '/Users/mitul/codebase/react/adminpage/src/data.json'
 
 function App() {
   const [rowData, setRowData] = useState([]);
   
   useEffect(() => {
-    fetch('data.json')
+    fetch(data)
       .then(res => res.json())
       .then(result => setRowData(result.data));
   }, []);
@@ -26,14 +27,19 @@ function App() {
 
   return (
      <div className="ag-theme-alpine" 
-     style={{height: 400, width: 6000}}>
+     style={{height: 400, width: 1450}}>
            <AgGridReact
                 defaultColDef={{ flex: 1 }}
                 rowHeight={60}
                 rowData={rowData} >
-                <AgGridColumn field="first_name" headerName="First Name" sortable={true} filter={true} cellClass="vertical-middle" />
-                <AgGridColumn field="last_name" headerName="Last Name" sortable={true} filter={true} cellClass="vertical-middle" />
-                <AgGridColumn field="email" headerName="Email" sortable={true} filter={true} cellClass="vertical-middle" />
+                <AgGridColumn field="first_name" headerName="CASE NUMBER" sortable={true} filter={true} cellClass="vertical-middle" />
+                <AgGridColumn field="last_name" headerName="CERTOPS" sortable={true} filter={true} cellClass="vertical-middle" />
+                <AgGridColumn field="email" headerName="RHCERT" sortable={true} filter={true} cellClass="vertical-middle" />
+                <AgGridColumn field="email" headerName="PRODUCT" sortable={true} filter={true} cellClass="vertical-middle" />
+                <AgGridColumn field="email" headerName="STATUS" sortable={true} filter={true} cellClass="vertical-middle" />
+                <AgGridColumn field="email" headerName="CERTIFICATION TYPE" sortable={true} filter={true} cellClass="vertical-middle" />
+                <AgGridColumn field="email" headerName="ECOSYSTEM" sortable={true} filter={true} cellClass="vertical-middle" />
+                <AgGridColumn field="email" headerName="LAST UPDATED" sortable={true} filter={true} cellClass="vertical-middle" />
            </AgGridReact>
        </div>
    );

@@ -5,7 +5,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
  
 import './App.css';
-import data from '.ˀ/data.json'
+import data from './data.json'
 
 function App() {
   const [rowData, setRowData] = useState([]);
@@ -31,11 +31,6 @@ function App() {
                 rowHeight={60}
                 rowData={rowData} >
                 <AgGridColumn field="id" headerName="CASE NUMBER" sortable={true} filter={true} cellClass="vertical-middle" />
-                <AgGridColumn field="product" headerName="PRODUCT" sortable={true} filter={true} cellClass="vertical-middle" />
-                <AgGridColumn field="certStatus" headerName="STATUS" sortable={true} filter={true} cellClass="vertical-middle" />
-                <AgGridColumn field="certificationType" headerName="CERTIFICATION TYPE" sortable={true} filter={true} cellClass="vertical-middle" />
-                <AgGridColumn field="ecosystem" headerName="ECOSYSTEM" sortable={true} filter={true} cellClass="vertical-middle" />
-                <AgGridColumn field="lastModifiedDate" headerName="LAST UPDATED" sortable={true} filter={true} cellClass="vertical-middle" />
            </AgGridReact>
        </div>
    );
